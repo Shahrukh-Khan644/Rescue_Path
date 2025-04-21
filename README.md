@@ -1,94 +1,108 @@
+# RescuePath
 
+**RescuePath** is a web-based application designed to provide emergency resources, escape routes, and relevant information for various calamities. It is intended for users who need to quickly access emergency information and escape routes based on their location and the type of disaster they are facing.
 
-## 📌 Project Overview
-Rescue Path is a web-based emergency assistance platform that helps users find the **nearest hospitals, medical centers, and emergency contacts** based on their location. It also provides **disaster awareness resources** through embedded YouTube videos without redirecting users. The platform aims to enhance **quick decision-making and access to life-saving resources** in critical situations.
+The app offers disaster-related resources, such as:
+- **Escape Routes** for calamities like floods, earthquakes, wildfires, and tsunamis.
+- **First Aid Information** to help individuals administer basic medical assistance.
+- **Emergency Contacts** to get access to phone numbers for immediate help.
+- **Nearest Hospitals and Medical Centers** in the area.
 
+<img width="1005" alt="Screenshot 2025-04-21 at 4 41 55 PM" src="https://github.com/user-attachments/assets/ac182e1d-49de-47c6-977e-68e4876905b2" />
 
-## 🎯 Key Features
-- 🌍 **Location-Based Hospital Search**: Users can find nearby hospitals using browser location or manual entry.
-- 🆘 **Emergency Contact Information**: Displays emergency numbers relevant to the user's region/country.
-- 🎥 **Disaster Awareness Videos**: Provides YouTube-embedded educational videos for disaster preparedness.
-- 🗺️ **Interactive Map Integration**: Uses Google Maps API for real-time hospital locations and navigation.
-- 📱 **Mobile-Friendly UI**: Fully responsive design for easy access on any device.
-
-
-## 🏗️ Tech Stack
-- **Frontend**: HTML, CSS, JavaScript
-- **APIs Used**:
-  - Google Maps Places API (for hospital search)
-  - OpenStreetMap (alternative for location services)
-  - YouTube iFrame API (for disaster awareness videos)
-  - Open Data APIs (for emergency contact details by country)
-- **Backend**: Node.js (optional for future scalability)
-
-## 🔧 Installation & Setup
-### Prerequisites
-- A Google Maps API key (Get one from [Google Cloud Console](https://console.cloud.google.com/))
-- A web browser with location access enabled
-
-### Steps
-1. **Clone the Repository**:
-   ```sh
-   git clone https://github.com/yourusername/rescue-path.git
-   cd rescue-path
-   ```
-2. **Open `index.html` in a browser**.
-3. If using a local server, run:
-   ```sh
-   npx serve .
-   ```
-4. Grant **location access** when prompted.
-5. Search for the **nearest hospital** or manually enter a location.
-6. Watch **disaster awareness videos** embedded on the platform.
-
-## 📌 API Implementation
-### 1️⃣ Google Maps API (for Nearest Hospital Search)
-- Fetches hospitals and medical centers near the user's location.
-```js
-function findHospitals(latitude, longitude) {
-    const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
-    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=5000&type=hospital&key=${apiKey}`;
-    
-    fetch(url)
-    .then(response => response.json())
-    .then(data => console.log(data.results))
-    .catch(error => console.error('Error fetching hospital data:', error));
-}
-```
-
-### 2️⃣ Fetching Emergency Contact Information
-- Retrieves country-specific emergency numbers.
-```js
-function getEmergencyContacts(countryCode) {
-    fetch(`https://api.example.com/emergency-contacts/${countryCode}`)
-    .then(response => response.json())
-    .then(data => console.log('Emergency Contacts:', data))
-    .catch(error => console.error('Error fetching contacts:', error));
-}
-```
-
-### 3️⃣ Embedding Disaster Awareness Videos
-```html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/abcd1234" frameborder="0" allowfullscreen></iframe>
-```
-
-## 🎨 UI Preview
-<img width="1470" alt="Screenshot 2025-02-13 at 8 56 36 PM" src="https://github.com/user-attachments/assets/bc20900b-6033-496d-af4a-3c7d124aabf7" />
-
-## 📌 Future Enhancements
-- 🔄 **Real-time Disaster Alerts** using government APIs.
-- 📡 **Offline Access** for emergency contact numbers.
-- 🤖 **AI Chatbot** for guiding users in emergencies.
-
-## 🤝 Contributing
-1. **Fork the repository**.
-2. Create a **new branch** for your feature.
-3. Commit your changes and push them.
-4. Create a **Pull Request**.
-
-## 📜 License
-This project is licensed under the **MIT License**.
 
 ---
 
-🚀 **Stay Safe. Stay Informed. Save Lives.** 💙
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Visual Description](#visual-description)
+- [Installation Guide](#installation-guide)
+- [Further Details](#further-details)
+
+
+---
+
+## Features
+
+- **User-Friendly Interface**: Clean, intuitive design for ease of use.
+- **Dynamic Disaster and Location Selection**: Users can select disaster types (e.g., Earthquake, Flood) and input their location to get relevant resources.
+- **Escape Routes**: Provides detailed escape routes to the nearest safe zones during calamities.
+- **First Aid and Emergency Contacts**: Quick access to first aid tips and emergency contact numbers.
+- **Responsive Design**: Optimized for mobile and desktop viewing.
+- **Interactive Map**: Displays escape routes on a map with markers.
+- **Modals**: Clean pop-up modals for displaying emergency resources without leaving the page.
+
+---
+
+## Technologies Used
+
+- **Frontend**:
+  - **React**: JavaScript library for building user interfaces.
+  - **React Router**: For handling routing within the app.
+  - **CSS3**: For styling the components.
+  - **JavaScript (ES6+)**: Modern JavaScript for functionality.
+  - **Axios / Fetch**: For making HTTP requests to the backend API.
+
+- **Backend**:
+  - **Node.js**: JavaScript runtime used for the backend (if applicable).
+  - **Express.js**: Web application framework for Node.js (if applicable).
+  - **MongoDB / SQL Database**: For storing user data, emergency contacts, hospital details (depending on the app setup).
+  - **API**: RESTful APIs for getting the escape route data, hospital data, etc.
+
+- **Other Tools**:
+  - **Google Maps API** (or similar): To show location-based maps and escape routes.
+  - **Heroku / Netlify / Vercel**: For hosting the frontend application (if applicable).
+  - **Docker**: For containerizing the application (if applicable).
+
+
+---
+
+## Visual Description
+
+<img width="999" alt="Screenshot 2025-04-21 at 4 42 30 PM" src="https://github.com/user-attachments/assets/68c0c719-341c-410d-bc94-36c8c1a4f950" />
+
+<img width="1003" alt="Screenshot 2025-04-21 at 4 42 44 PM" src="https://github.com/user-attachments/assets/6490231b-da92-4a42-b832-7d74ef45f6a9" />
+
+<img width="1005" alt="Screenshot 2025-04-21 at 4 43 22 PM" src="https://github.com/user-attachments/assets/c1e0c7cb-93bd-4d2f-a060-d4006c207d0b" />
+
+<img width="993" alt="Screenshot 2025-04-21 at 4 43 44 PM" src="https://github.com/user-attachments/assets/e5976a84-f3d2-4238-83a9-5bfcda5ca9ae" />
+
+<img width="1020" alt="Screenshot 2025-04-21 at 4 44 02 PM" src="https://github.com/user-attachments/assets/c6e10029-67d5-49af-87aa-4e8f09ddcd89" />
+
+<img width="804" alt="Screenshot 2025-04-21 at 4 44 25 PM" src="https://github.com/user-attachments/assets/b8c6ff17-c47c-4709-8f4b-fd2f914cabc0" />
+
+---
+
+## Installation Guide
+
+Follow these steps to install and run RescuePath locally:
+
+### Prerequisites
+
+Ensure you have the following software installed on your system:
+- **Node.js** (LTS version) - [Download Node.js](https://nodejs.org/en/)
+- **npm** (Node Package Manager) or **yarn** (alternative) - Usually installed with Node.js.
+- **Git** - [Download Git](https://git-scm.com/)
+
+
+
+---
+
+## Further Details
+
+
+Check this Detailed Document for better understanding
+
+
+
+---
+
+### Clone the Repository
+
+Start by cloning the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/rescuepath.git
+
