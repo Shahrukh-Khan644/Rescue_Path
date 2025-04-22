@@ -1,5 +1,5 @@
 import React from 'react';
-import './map_Modal.css';
+import './map_modal.css';
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
